@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonPipe, NgIf } from '@angular/common';
 
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { JsonPipe, NgIf } from '@angular/common';
     NoopAnimationsModule,
     NgIf,
     JsonPipe,
+    MatIconModule,
     
   ],
   providers: [Router],
