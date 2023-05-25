@@ -1,0 +1,16 @@
+<h1>Iniciar sesión</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div>
+    <label for="cedula">Cédula:</label>
+    <input type="text" id="cedula" formControlName="cedula" required>
+  </div>
+  <div>
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" formControlName="contrasena" required>
+  </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <button type="submit">Iniciar sesión</button>
+</form>
+
+<p>No tienes una cuenta? <a routerLink="/registro">Regístrate aquí</a></p>

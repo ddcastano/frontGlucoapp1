@@ -1,0 +1,27 @@
+<h1>Registro de Usuario</h1>
+
+<form [formGroup]="formRegister" (ngSubmit)="registrarUsuario()">
+  <div>
+    <label for="cedula">Cédula:</label>
+    <input type="text" id="cedula" formControlName="cedula" required maxlength="15">
+  </div>
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" formControlName="nombre" required>
+  </div>
+  <div>
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" formControlName="contrasena" required maxlength="15">
+  </div>
+  <div>
+    <label for="confirmContrasena">Confirmar Contraseña:</label>
+    <input type="password" id="confirmContrasena" formControlName="confirmContrasena" required maxlength="15">
+    <div *ngIf="formRegister.controls['confirmContrasena'].hasError('noCoincide')">Las contraseñas no coinciden</div>
+  </div>
+  <div>
+    <label for="celular">Celular:</label>
+    <input type="text" id="celular" formControlName="celular" required>
+  </div>
+  <button type="button" (click)="volver()">Volver</button>
+  <button type="submit" [disabled]="!formRegister.valid">Registrar</button>
+</form>
