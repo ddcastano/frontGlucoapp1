@@ -14,6 +14,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage!: string;
   usuario: Usuario = new Usuario();
+  hide = true;
 
   ngOnInit(): void {
   }
