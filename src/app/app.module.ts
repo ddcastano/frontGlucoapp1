@@ -21,12 +21,17 @@ import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonPipe, NgIf } from '@angular/common';
 
 import {MatIconModule} from '@angular/material/icon';
+
+
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +60,7 @@ import {MatIconModule} from '@angular/material/icon';
     NgIf,
     JsonPipe,
     MatIconModule,
+    MatButtonModule,
     
   ],
   providers: [Router],

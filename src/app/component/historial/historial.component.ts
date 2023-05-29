@@ -17,6 +17,7 @@ export class HistorialComponent implements OnInit {
   fechaFin: string = "0000-00-00";
   ListaGlucometria!: any[];
   chart: any;
+  chartId: any;
   public user: any;
   public datosDisponibles: boolean = false;
 
@@ -73,9 +74,14 @@ export class HistorialComponent implements OnInit {
   }
 
   renderChart(): void {
+    // Destruir el gráfico existente si hay uno
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
     const labels = this.ListaGlucometria.map(item => item.dia);
     const data = this.ListaGlucometria.map(item => item.glucometria);
-  
+
     const ctx = document.getElementById('chart') as HTMLCanvasElement;
     this.chart = new Chart(ctx, {
       type: 'line',
@@ -114,13 +120,6 @@ export class HistorialComponent implements OnInit {
         }
       }
     });
-  
-    if (!this.datosDisponibles) {
-      this.chart.options.plugins.title = {
-        display: true,
-        text: 'No hay datos disponibles' // Mensaje de aviso si no hay datos
-      };
-    }
   }
 
   volver(): void {
