@@ -17,11 +17,20 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 89ba7f7a0ffac3c4cc6edd841d297a398eb54954
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonPipe, NgIf } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+
+
+
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -51,7 +60,12 @@ import { MatCardModule } from '@angular/material/card';
     NgIf,
     JsonPipe,
     MatIconModule,
+<<<<<<< HEAD
     MatCardModule
+=======
+    MatButtonModule,
+    
+>>>>>>> 89ba7f7a0ffac3c4cc6edd841d297a398eb54954
   ],
   providers: [Router],
   bootstrap: [AppComponent]

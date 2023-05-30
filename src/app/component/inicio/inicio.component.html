@@ -1,8 +1,12 @@
-<h1>Gráfico de glucosa</h1>
+<div fxLayout="column" fxLayoutAlign="center center" style="height: 100vh;">
+  <h1 class="Titulo">Gráfico de glucosa</h1>
 
-<div>
-  <canvas id="chart"></canvas>
+  <div>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center" style="margin-left: 40%; margin-top: 2rem;">
+    <button class="botonGrafico" mat-raised-button (click)="irARegistro()">Registro</button>
+    <button class="botonGrafico" mat-raised-button (click)="irAHistorial()">Historial</button>
+  </div>
 </div>
-
-<button (click)="irARegistro()">Registro</button>
-  <button (click)="irAHistorial()">Historial</button>
