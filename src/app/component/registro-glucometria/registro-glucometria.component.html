@@ -1,22 +1,22 @@
-<h1 class="Titulo">Registro de Glucometría</h1>
-
-<div class="center-container">
-    <form [formGroup]="formGlucometria" (ngSubmit)="registrarUsuario()">
-        <div fxLayout="row">
-            <mat-form-field fxFlex="50">
-                <mat-label>Hora:</mat-label>
-                <input matInput type="text" id="hora" [value]="getCurrentTime()" disabled>
-            </mat-form-field>
-        </div>
-        <div fxLayout="row">
-            <mat-form-field fxFlex="50">
-                <mat-label>Glucometría:</mat-label>
-                <input matInput type="number" id="glucometria" formControlName="glucometria" required>
-            </mat-form-field>
-        </div>
-        <div fxLayout="row">
+<div class="container">
+    <div class="form-wrapper">
+      <h1 class="title">Registro de glucosa</h1>
+  
+      <div class="form-fields">
+        <form [formGroup]="formGlucometria" (ngSubmit)="registrarUsuario()">
+          <mat-form-field>
+            <mat-label>Hora:</mat-label>
+            <input matInput type="text" id="hora" [value]="getCurrentTime()" disabled>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Glucometría:</mat-label>
+            <input matInput type="number" id="glucometria" formControlName="glucometria" required>
+          </mat-form-field>
+          <div class="button-wrapper">
             <button class="botonGrafico" mat-raised-button type="button" (click)="volver()">Volver</button>
-            <button  class="botonGrafico" mat-raised-button type="submit" [disabled]="!formGlucometria.valid">Registrar</button>
-        </div>
-    </form>
-</div>
+            <button class="botonGrafico" mat-raised-button type="submit" [disabled]="!formGlucometria.valid">Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,4 +1,43 @@
-.botonGrafico{
-    margin-left: 1rem;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.form-wrapper {
+  text-align: center;
+}
+
+.form-wrapper h1 {
+  margin-bottom: 1rem;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+
+
+.button-wrapper button {
+  margin: 0 0.5rem;
+}
+
+/* Estilos responsivos */
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0;
   }
+
+  .form-wrapper {
+    width: 90%;
+  }
+}

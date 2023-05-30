@@ -1,25 +1,27 @@
-<div fxLayout="column" fxLayoutAlign="center center" style="height: 100vh; margin-top: 10rem;">
-  <div style="margin: 0 auto;">
-    <h1 style="text-align: center;">Iniciar sesión</h1>
+<div class="container">
+  <div class="form-wrapper">
+    <h1>Iniciar sesión</h1>
 
-    <form [formGroup]="loginForm" (ngSubmit)="login()" fxLayout="column" style="width: 300px; margin-left: 45%;">
-      <mat-form-field >
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field>
         <mat-label>Cédula:</mat-label>
         <input matInput type="text" id="cedula" formControlName="cedula" required>
       </mat-form-field>
-
+      <br>
       <mat-form-field>
         <mat-label>Contraseña:</mat-label>
         <input matInput type="password" id="contrasena" formControlName="contrasena" required>
       </mat-form-field>
 
-      <div *ngIf="errorMessage" class="error-message" style="text-align: center;">{{ errorMessage }}</div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <br>
 
-      <div fxLayout="row" fxLayoutAlign="" style="margin-left: 12%; margin-bottom:5rem ;">
+      <div class="submit-button">
         <button mat-raised-button color="primary" type="submit">Iniciar sesión</button>
       </div>
     </form>
+    <br>
 
-    <p style="text-align: center;">No tienes una cuenta? <a routerLink="/registro">Regístrate aquí</a></p>
+    <p>No tienes una cuenta? <a routerLink="/registro">Regístrate aquí</a></p>
   </div>
 </div>

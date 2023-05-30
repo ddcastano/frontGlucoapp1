@@ -40,6 +40,13 @@ export class InicioComponent implements OnInit {
   renderChart(): void {
     const labels = this.ListaGlucometria.map(item => item.hora);
     const data = this.ListaGlucometria.map(item => item.glucometria);
+    const backgroundColors = data.map(value => {
+      if (value < 70 || value > 180) {
+        return 'red';
+      } else {
+        return 'rgba(0, 0, 255, 0.2)';
+      }
+    });
   
     const ctx = document.getElementById('chart') as HTMLCanvasElement;
     this.chart = new Chart(ctx, {
@@ -51,7 +58,7 @@ export class InicioComponent implements OnInit {
             label: 'Valores de glucosa',
             data: data,
             borderColor: 'blue',
-            backgroundColor: 'rgba(0, 0, 255, 0.2)',
+            backgroundColor: backgroundColors,
             fill: 'origin'
           }
         ]
@@ -74,13 +81,12 @@ export class InicioComponent implements OnInit {
               text: 'Valor de glucosa'
             },
             suggestedMin: 0,
-            suggestedMax: 400
+            suggestedMax: 200
           }
         }
       }
     });
   }
-
 
   irARegistro(): void {
     this.router.navigate(['/inicio/registro']);

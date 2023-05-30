@@ -1,21 +1,43 @@
-.center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-  }
-  
-  .Titulo {
-    text-align: center;
-    margin-bottom: -8rem;
-  }
-  .botonGrafico{
-    margin-left: 1rem;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  padding: 0 1rem;
+}
 
+.form-wrapper {
+  text-align: center;
+  margin: 1rem;
+}
+
+.form-wrapper h1 {
+  text-align: center;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button-wrapper button {
+  margin: 0 0.5rem;
+}
+
+/* Estilos responsivos */
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0;
   }
+
+  .form-wrapper {
+    width: 90%;
+  }
+}

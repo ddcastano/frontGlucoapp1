@@ -15,7 +15,7 @@ export class HistorialComponent implements OnInit {
   cedula!: string;
   fechaInicio: string = "0000-00-00";
   fechaFin: string = "0000-00-00";
-  ListaGlucometria!: any[];
+  ListaGlucometria: any[] = []; // Inicializar como un array vacío
   chart: any;
   chartId: any;
   public user: any;
@@ -34,11 +34,13 @@ export class HistorialComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.listaFecha();
     Chart.register(...registerables);
     this.range.valueChanges.subscribe(() => {
       this.listaFecha();
     });
+
+    // Llamar a listaFecha() inicialmente para renderizar el gráfico vacío
+    this.listaFecha();
   }
 
   formatDate(date: Date): string {
@@ -70,6 +72,21 @@ export class HistorialComponent implements OnInit {
           this.renderChart(); // Renderizar el gráfico incluso si no hay datos
         }
       );
+    }else {
+      this.ListaGlucometria = []; // Asignar una lista vacía cuando no hay fechas
+      this.glucoService.listaFecha(this.fechaInicio, this.fechaFin, this.cedula).subscribe(
+        data => {
+          this.ListaGlucometria = data;
+          console.log('lista', data);
+          this.datosDisponibles = true; // Marcar como true si hay datos disponibles
+          this.renderChart();
+        },
+        error => {
+          console.log('Error al obtener los datos', error);
+          this.datosDisponibles = false; // Marcar como false si ocurre un error al obtener los datos
+          this.renderChart(); // Renderizar el gráfico incluso si no hay datos
+        }
+      );
     }
   }
 
@@ -81,7 +98,14 @@ export class HistorialComponent implements OnInit {
 
     const labels = this.ListaGlucometria.map(item => item.dia);
     const data = this.ListaGlucometria.map(item => item.glucometria);
-
+    const backgroundColors = data.map(value => {
+      if (value < 70 || value > 180) {
+        return 'red';
+      } else {
+        return 'rgba(0, 0, 255, 0.2)';
+      }
+    });
+    
     const ctx = document.getElementById('chart') as HTMLCanvasElement;
     this.chart = new Chart(ctx, {
       type: 'line',
@@ -92,7 +116,7 @@ export class HistorialComponent implements OnInit {
             label: 'Valores de glucosa',
             data: data,
             borderColor: 'blue',
-            backgroundColor: 'rgba(0, 0, 255, 0.2)',
+            backgroundColor: backgroundColors,
             fill: 'origin'
           }
         ]
